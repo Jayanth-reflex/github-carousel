@@ -1,30 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Carousel.scss';
 
-const cards = Array.from({ length: 8 }, (_, i) => ({
-  index: i + 1,
-  title: `Image ${8 - i}`,
-  desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac sapien leo. Proin rutrum magna eu aliquam vulputate. Nullam suscipit.'
-}));
+const GITHUB_USER = 'Jayanth-reflex';
 
 export default function Carousel() {
+  const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${GITHUB_USER}/repos`)
+      .then(res => res.json())
+      .then(data => setRepos(data.slice(0, 8)));
+  }, []);
+
+  // Fill up to 8 cards, even if there are fewer repos
+  const cards = Array.from({ length: 8 }, (_, i) => repos[i] || null);
+
   return (
     <div className="carousel">
-      {cards.map(card => (
-        <div className={`card c${card.index}`} key={card.index}>
-          <div
-            className="img"
-            style={{
-              backgroundImage: `url(https://picsum.photos/300/300.webp?random=${card.index})`,
-              backgroundSize: '190px 190px'
-            }}
-          />
-          <p>{card.title}</p>
-          <span>{card.desc}</span>
+      {cards.map((repo, i) => (
+        <div className={`card c${i+1}`} key={repo ? repo.id : i}>
+          <a
+            href={repo ? repo.html_url : '#'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card-link"
+            tabIndex={repo ? 0 : -1}
+            aria-disabled={!repo}
+            style={{ pointerEvents: repo ? 'auto' : 'none' }}
+          >
+            <div className="img" />
+            <p style={{ color: '#f7a41d', fontWeight: 700, textAlign: 'center', wordBreak: 'break-all' }}>
+              {repo ? repo.name : 'No Repo'}
+            </p>
+          </a>
+          <span>{repo ? (repo.description || 'No description') : ''}</span>
         </div>
       ))}
-      {cards.map(card => (
-        <div className={`cardb cb${card.index}`} key={`b${card.index}`}></div>
+      {cards.map((_, i) => (
+        <div className={`cardb cb${i+1}`} key={`b${i}`} />
       ))}
     </div>
   );
