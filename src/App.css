@@ -1,1 +1,21 @@
-/* App styles can go here */ 
+.carousel-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-family: 'Montserrat', 'Fira Code', monospace;
+  background: linear-gradient(90deg, #f7a41d, #ff5e62, #00c6ff, #f7a41d);
+  background-size: 200% auto;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 2px;
+  padding: 1.2rem 0 2.2rem 0;
+  margin: 0;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(247,164,29,0.15);
+  animation: gradient-move 4s linear infinite;
+  text-shadow: 0 2px 16px #000, 0 1px 0 #f7a41d;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%;}
+  100% { background-position: 100% 50%;}
+}

@@ -16,15 +16,22 @@ export default function Carousel() {
     <div className="carousel">
       {repos.map((repo, i) => (
         <div className={`card c${i+1}`} key={repo.id}>
-          <div
-            className="img"
-            style={{
-              backgroundImage: `url(https://picsum.photos/300/300.webp?random=${i+1})`,
-              backgroundSize: '190px 190px'
-            }}
-          />
-          <p>{repo.name}</p>
-          <span>{repo.description || 'No description'}</span>
+          <a
+            href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card-link"
+          >
+            <div
+              className="img"
+              style={{
+                backgroundImage: `url(https://picsum.photos/300/180.webp?random=${i+1})`,
+                backgroundSize: 'cover'
+              }}
+            />
+            <p className="repo-name">{repo.name}</p>
+          </a>
+          <span className="repo-desc">{repo.description || 'No description'}</span>
         </div>
       ))}
       {repos.map((repo, i) => (
@@ -32,4 +39,4 @@ export default function Carousel() {
       ))}
     </div>
   );
-} 
+}
