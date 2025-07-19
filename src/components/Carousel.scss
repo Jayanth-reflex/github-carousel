@@ -48,9 +48,9 @@
     }
     .img {
       width: 170px;
-      height: 90px;
+      height: 80px;
       border-radius: 8px;
-      margin: 18px 0 8px 0;
+      margin: 18px 0 16px 0;
       filter: brightness(.85) drop-shadow(0 2px 8px #0008);
       background-position: center;
       background-repeat: no-repeat;
@@ -60,7 +60,7 @@
     .repo-name {
       font-size: 1.1rem;
       font-weight: 700;
-      margin: 0 0 4px 0;
+      margin: 0 0 8px 0;
       color: #f7a41d;
       text-align: center;
       text-shadow: 0 1px 4px #000a;
@@ -74,6 +74,7 @@
       padding: 0 10px 8px 10px;
       opacity: 0.85;
       font-family: 'Montserrat', sans-serif;
+      margin-bottom: 8px;
     }
   }
   @for $i from 1 through 8 {
