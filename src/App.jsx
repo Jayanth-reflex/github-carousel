@@ -1,15 +1,16 @@
-import Carousel from './components/Carousel';
-import './App.css';
+import React from "react";
+import Carousel from "./components/Carousel";
+import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="main-content">
-      <h1 className="carousel-title">
-        <span>🚀</span> Jayanth’s <span style={{color:'#F7A41D'}}>GitHub Repositories</span> <span>✨</span>
-      </h1>
+    <div className="center-container">
+      <header className="header">
+        <span role="img" aria-label="rocket">🚀</span>
+        <span className="header-title">Jayanth's GitHub Repos</span>
+        <span role="img" aria-label="sparkles">✨</span>
+      </header>
       <Carousel />
     </div>
   );
 }
-
-export default App;
