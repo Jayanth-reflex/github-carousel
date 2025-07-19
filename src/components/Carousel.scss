@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 .carousel {
-  transform: perspective(1000px) rotateX(70deg);
+  position: relative;
+  transform: perspective(1000px) rotateX(70deg) translateY(-60px);
   transform-style: preserve-3d;
   display: grid;
   place-items: center;
