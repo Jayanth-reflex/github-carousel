@@ -29,7 +29,7 @@ export default function Carousel() {
             style={{ pointerEvents: repo ? 'auto' : 'none' }}
           >
             <div className="img" />
-            <p style={{ color: '#f7a41d', fontWeight: 700, textAlign: 'center', wordBreak: 'break-all' }}>
+            <p>
               {repo ? repo.name : 'No Repo'}
             </p>
           </a>
