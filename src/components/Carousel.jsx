@@ -17,6 +17,7 @@ export default function Carousel() {
     <div
       className="carousel"
       style={{
+        transform: 'perspective(1000px) rotateX(70deg)',
         animationPlayState: isHovered ? 'paused' : 'running',
       }}
       onMouseEnter={() => setIsHovered(true)}
